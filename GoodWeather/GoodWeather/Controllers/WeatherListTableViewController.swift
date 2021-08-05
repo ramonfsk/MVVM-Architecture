@@ -96,10 +96,7 @@ extension WeatherListTableViewController: AddWeatherDelegate {
 
 extension WeatherListTableViewController: SettingsDelegate {
     func settingsDone(viewModel: SettingsViewModel) {
-        if lastUnitSelection.rawValue != viewModel.selectedUnit.rawValue {
-            weatherListViewModel.updateUnit(to: viewModel.selectedUnit)
-            tableView.reloadData()
-            lastUnitSelection = Unit(rawValue: viewModel.selectedUnit.rawValue)!
-        }
+        self.weatherListViewModel.updateUnit(to: viewModel.selectedUnit)
+        self.tableView.reloadData()
     }
 }
